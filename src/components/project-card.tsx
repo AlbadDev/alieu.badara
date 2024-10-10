@@ -11,6 +11,13 @@ import Image from "next/image";
 import Link from "next/link";
 import Markdown from "react-markdown";
 
+
+
+interface Links {
+  type: string;
+  href: string;
+} 
+
 interface Props {
   id: number;
   title: string;
@@ -21,11 +28,12 @@ interface Props {
   link?: string;
   image?: string;
   video?: string;
-  links?: readonly {
-    icon: React.ReactNode;
-    type: string;
-    href: string;
-  }[];
+  links?: Links;
+  // readonly {
+  //   // icon: React.ReactNode;
+  //   type: string;
+  //   href: string;
+  // }[];
   className?: string;
 }
 

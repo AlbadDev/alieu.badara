@@ -3,7 +3,12 @@ import React, { useState } from "react";
 import { IoIosColorPalette } from "react-icons/io";
 import style from "./ColorList.module.scss"
 
-const ColorList = ({colors}) => {
+
+interface ColorListProps {
+  colors: string[]; // Array of hex color strings
+}
+
+const ColorList: React.FC<ColorListProps> = ({ colors }) => {
 
   const [copied, setCopied] = useState(false); // State to show/hide copied message
   const [copiedColor, setCopiedColor] = useState(''); // State to store the copied color
@@ -28,8 +33,8 @@ const ColorList = ({colors}) => {
       </label>
       <ul>
         {
-          colors?.map( color  => (
-          <li onClick={() => handleCopy(color)}>
+          colors?.map( (color: string)  => (
+          <li onClick={() => handleCopy(color)} key={color}>
             <div style={{ background: color }}> </div>{color}
           </li>
         ))} 

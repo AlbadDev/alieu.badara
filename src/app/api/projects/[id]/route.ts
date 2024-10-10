@@ -186,7 +186,7 @@ const projects = [
     image: {
       "firstMobile":"https://i.imgur.com/tx77li6.png",
       "secondMobile":"https://i.imgur.com/jMXxxus.png",
-      // "tablet":"https://i.imgur.com/LuvzMX9.png",
+      "tablet":"https://i.imgur.com/LuvzMX9.png",
       "laptop":"https://i.imgur.com/joMC5q8.png",
     },
     video: "https://cdn.llm.report/openai-demo.mp4",

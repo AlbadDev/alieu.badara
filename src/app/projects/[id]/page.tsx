@@ -19,7 +19,7 @@ import { HiOutlineLightBulb } from "react-icons/hi2";
 import Link from "../../../../node_modules/next/link";
 import ColorList from "@/components/helpers/ColorList";
 import Head from "next/head";
-import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, AwaitedReactNode } from "react";
+import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, AwaitedReactNode, Key } from "react";
 
 
 interface Image {
@@ -30,9 +30,9 @@ interface Image {
 }
 
 interface Project {
-  colors: string;
-  inDeep: any;
-  mvp: any;
+  colors: [];
+  inDeep: [];
+  mvp: [];
   id: number;
   title: string;
   href: string;
@@ -159,7 +159,7 @@ export default async function ProjectPage({
           </div>
           <div className={style.mvpContainer}>
             <ul className={style.ulList}>
-              {project.mvp?.map( mvp => (
+              {project.mvp?.map( (mvp: string ) => (
                 <li className={style.list} key={mvp}>
                   <div>
                     <IoChevronDownOutline className={style.iconList} />
@@ -225,7 +225,7 @@ export default async function ProjectPage({
                 </label>
                 <ul>
                   {project.technologies?.map((tech) => (
-                    <li>{tech}</li>
+                    <li key={tech}>{tech}</li>
                   ))}
                 </ul>
               </div>
@@ -248,8 +248,8 @@ export default async function ProjectPage({
           <div className={style.mvpContainer}>
             {/* <p style={{marginBottom:'40px'}}>The GitHub Viewer web app is built using a modern tech stack that ensures a seamless user experience and efficient data handling. </p> */}
             <ul className={style.ulList}>
-              {project.inDeep?.map((deep: string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode> | null | undefined) => (
-                <li className={style.list}>
+              {project.inDeep?.map((deep: string ) => (
+                <li className={style.list} key={deep}>
                   <div>
                     <IoChevronDownOutline className={style.iconList} />
                   </div>
