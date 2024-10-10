@@ -27,7 +27,33 @@ const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
 
-  const [project, setProject] = useState([]);
+  interface Image {
+    firstMobile: string;
+    secondMobile: string;
+    tablet: string;
+    laptop: string;
+  }
+
+  interface Links {
+    type: string;
+    href: string;
+  }
+
+  interface Project {
+    technologies: readonly string[];
+    id: number;
+    title: string;
+    description: string;
+    dates: string;
+    tags: string;
+    image: Image;
+    video: string;
+    links: Links;
+    // Add other properties as needed
+    // e.g., image: { firstMobile: string; tablet: string; ... }
+}
+
+  const [project, setProject] = useState<Project[]>([]);
 
   useEffect(() => {
     // Fetch the project from the Next.js API

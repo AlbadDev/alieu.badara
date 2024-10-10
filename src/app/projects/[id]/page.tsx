@@ -19,8 +19,18 @@ import { HiOutlineLightBulb } from "react-icons/hi2";
 import Link from "../../../../node_modules/next/link";
 import ColorList from "@/components/helpers/ColorList";
 import Head from "next/head";
+import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, AwaitedReactNode } from "react";
+
+
+interface Image {
+  firstMobile: string;
+  secondMobile: string;
+  tablet: string;
+  laptop: string;
+}
 
 interface Project {
+  colors: string;
   inDeep: any;
   mvp: any;
   id: number;
@@ -31,7 +41,7 @@ interface Project {
   description: string;
   technologies: string[];
   links: { type: string; href: string }[];
-  image: string;
+  image: Image;
   video: string;
 }
 
@@ -64,6 +74,8 @@ export default async function ProjectPage({
 }: {
   params: { id: string };
 }) {
+
+
   const project = await getProject(params.id);
 
 
@@ -236,7 +248,7 @@ export default async function ProjectPage({
           <div className={style.mvpContainer}>
             {/* <p style={{marginBottom:'40px'}}>The GitHub Viewer web app is built using a modern tech stack that ensures a seamless user experience and efficient data handling. </p> */}
             <ul className={style.ulList}>
-              {project.inDeep?.map((deep) => (
+              {project.inDeep?.map((deep: string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode> | null | undefined) => (
                 <li className={style.list}>
                   <div>
                     <IoChevronDownOutline className={style.iconList} />
