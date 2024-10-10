@@ -1,0 +1,19 @@
+label {
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+// .techContainer {
+    li {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 5px;
+        div {
+            min-width: 40px !important;
+            height: 30px;
+            border: 1px solid lightgray;
+            background-color: aqua;
+
+        }
+    }
+// }
