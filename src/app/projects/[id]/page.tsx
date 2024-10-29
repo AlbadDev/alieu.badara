@@ -50,7 +50,7 @@ export let metadata: Metadata
 
 async function getProject(id: string) {
 
-  const res = await fetch(`http://localhost:3000/api/projects/${id}`);
+  const res = await fetch(`https://alieu-badara.vercel.app/api/projects/${id}`);
   if (!res.ok) {
     throw new Error("Failed to fetch project");
   }
